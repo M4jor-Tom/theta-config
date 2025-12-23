@@ -15,13 +15,13 @@ function spread_dashboard() {
 }
 
 function mv_quick() {
-	STATE_DIR=".local/state/mv_quick"
+	STATE_DIR="${HOME}/.local/state/mv_quick"
 	mkdir -p "${STATE_DIR}"
 	FROM_PATH_PATH="${STATE_DIR}/from.txt"
 	TO_PATH_PATH="${STATE_DIR}/to.txt"
 	if [ -e "${FROM_PATH_PATH}" ] && [ -e "${TO_PATH_PATH}" ]; then
-		FROM_PATH="$(cat $FROM_PATH_PATH)"
-		TO_PATH="$(cat $TO_PATH_PATH)"
+		FROM_PATH=$(cat "${FROM_PATH_PATH}")
+		TO_PATH=$(cat "${TO_PATH_PATH}")
 		if [ -e "${FROM_PATH}" ] && [ -e "${TO_PATH}" ]; then
 			mkdir -p "${TO_PATH}/"
 			mv "${FROM_PATH}"/* "${TO_PATH}/"
@@ -45,3 +45,5 @@ function quadiff() {
     rm "$OLD_DIFF_PATH" "$NEW_DIFF_PATH"
   fi
 }
+
+
