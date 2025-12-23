@@ -11,11 +11,15 @@ for git_alias in branch push; do
 done
 
 alias gs='git status'
-alias g='git remote prune origin; git fetch --all; git log --decorate --graph --oneline --all'
+alias gupd='git remote prune origin; git fetch --all'
+alias gl='git log --decorate --graph --oneline --all'
+alias g='gupd; gl'
+alias spush="git stash push -m"
 alias co='git checkout'
 alias ci="git commit -m"
 alias ga='git add --all'
 alias gr='git restore'
+alias grs='git restore --staged'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gca='git commit --amend'
